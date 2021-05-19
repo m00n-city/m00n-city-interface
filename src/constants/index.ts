@@ -19,34 +19,23 @@ export const AVERAGE_BLOCK_TIME_IN_SECS = 13
 export const PROPOSAL_LENGTH_IN_BLOCKS = 40_320
 export const PROPOSAL_LENGTH_IN_SECS = AVERAGE_BLOCK_TIME_IN_SECS * PROPOSAL_LENGTH_IN_BLOCKS
 
-export const TIMELOCK_ADDRESS = '0x1a9C8182C09F50C8318d769245beA52c32BE35BC'
+export const TIMELOCK_ADDRESS = '0xf370671dD4cC2F2a0b6442Ddf010C6bd176dAA16'
 
-// SUSHI
+// LUNAR
+const tokenDefaultOptions: [string, number, string, string] = [
+    '0x5Adc6eB6cf61A2BFef9AE6A64c7236F34dF3081a',
+    18,
+    'LUNAR',
+    'LunarToken'
+]
+// TODO: change name to LUNAR
 export const SUSHI: ChainTokenMap = {
-    [ChainId.MAINNET]: new Token(
-        ChainId.MAINNET,
-        '0x6B3595068778DD592e39A122f4f5a5cF09C90fE2',
-        18,
-        'SUSHI',
-        'SushiToken'
-    ),
-    [ChainId.ROPSTEN]: new Token(
-        ChainId.ROPSTEN,
-        '0x0769fd68dFb93167989C6f7254cd0D766Fb2841F',
-        18,
-        'SUSHI',
-        'SushiToken'
-    ),
-    [ChainId.RINKEBY]: new Token(
-        ChainId.RINKEBY,
-        '0x0769fd68dFb93167989C6f7254cd0D766Fb2841F',
-        18,
-        'SUSHI',
-        'SushiToken'
-    ),
-    [ChainId.GÖRLI]: new Token(ChainId.GÖRLI, '0x0769fd68dFb93167989C6f7254cd0D766Fb2841F', 18, 'SUSHI', 'SushiToken'),
-    [ChainId.KOVAN]: new Token(ChainId.KOVAN, '0x0769fd68dFb93167989C6f7254cd0D766Fb2841F', 18, 'SUSHI', 'SushiToken'),
-    [ChainId.FANTOM]: new Token(ChainId.FANTOM, '0xae75A438b2E0cB8Bb01Ec1E1e376De11D44477CC', 18, 'SUSHI', 'SushiToken')
+    [ChainId.MAINNET]: new Token(ChainId.MAINNET, ...tokenDefaultOptions),
+    [ChainId.ROPSTEN]: new Token(ChainId.ROPSTEN, ...tokenDefaultOptions),
+    [ChainId.RINKEBY]: new Token(ChainId.RINKEBY, ...tokenDefaultOptions),
+    [ChainId.GÖRLI]: new Token(ChainId.GÖRLI, ...tokenDefaultOptions),
+    [ChainId.KOVAN]: new Token(ChainId.KOVAN, ...tokenDefaultOptions),
+    [ChainId.FANTOM]: new Token(ChainId.FANTOM, ...tokenDefaultOptions)
 }
 
 export const COMMON_CONTRACT_NAMES: { [address: string]: string } = {
