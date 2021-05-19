@@ -43,6 +43,17 @@ const PARAMS: {
         rpcUrls: ['https://rpcapi.fantom.network'],
         blockExplorerUrls: ['https://ftmscan.com']
     },
+    [ChainId.FANTOM_TESTNET]: {
+        chainId: '0xfa2',
+        chainName: 'Fantom Testnet',
+        nativeCurrency: {
+            name: 'Fantom',
+            symbol: 'FTM',
+            decimals: 18
+        },
+        rpcUrls: ['https://rpc.testnet.fantom.network'],
+        blockExplorerUrls: ['https://explorer.testnet.fantom.network/']
+    },
     [ChainId.BSC]: {
         chainId: '0x38',
         chainName: 'Binance Smart Chain',
@@ -133,7 +144,7 @@ export default function NetworkModal(): JSX.Element | null {
         <Modal isOpen={networkModalOpen} onDismiss={toggleNetworkModal}>
             <ModalHeader onClose={toggleNetworkModal} title="Select a Network" />
             <div className="text-lg text-primary mb-6">
-                You are currently browsing <span className="font-bold text-pink">SUSHI</span>
+                You are currently browsing <span className="font-bold text-pink">LUNAR</span>
                 <br /> on the <span className="font-bold text-blue">{NETWORK_LABEL[chainId]}</span> network
             </div>
 
@@ -141,13 +152,14 @@ export default function NetworkModal(): JSX.Element | null {
                 {[
                     ChainId.MAINNET,
                     ChainId.FANTOM,
+                    ChainId.FANTOM_TESTNET,
                     ChainId.BSC,
                     ChainId.MATIC,
-                    ChainId.HECO,
-                    ChainId.XDAI,
-                    ChainId.HARMONY,
-                    ChainId.AVALANCHE,
-                    ChainId.OKEX
+                    // ChainId.HECO,
+                    // ChainId.XDAI,
+                    // ChainId.HARMONY,
+                    // ChainId.AVALANCHE,
+                    // ChainId.OKEX
                 ].map((key: ChainId, i: number) => {
                     if (chainId === key) {
                         return (

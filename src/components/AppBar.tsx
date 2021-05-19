@@ -49,61 +49,25 @@ function AppBar(): JSX.Element {
                                     </div>
                                     <div className="hidden sm:block sm:ml-4">
                                         <div className="flex space-x-2">
-                                            <NavLink id={`swap-nav-link`} to={'/swap'}>
-                                                {i18n._(t`Swap`)}
-                                            </NavLink>
-                                            <NavLink
-                                                id={`pool-nav-link`}
-                                                to={'/pool'}
-                                                isActive={(match, { pathname }) =>
-                                                    Boolean(match) ||
-                                                    pathname.startsWith('/add') ||
-                                                    pathname.startsWith('/remove') ||
-                                                    pathname.startsWith('/create') ||
-                                                    pathname.startsWith('/find')
-                                                }
-                                            >
-                                                {i18n._(t`Pool`)}
-                                            </NavLink>
-                                            {chainId && [ChainId.MAINNET, ChainId.MATIC].includes(chainId) && (
-                                                <NavLink id={`yield-nav-link`} to={'/yield'}>
-                                                    {i18n._(t`Yield`)}
-                                                </NavLink>
-                                            )}
-                                            {chainId === ChainId.MAINNET && (
-                                                <NavLink id={`sushibar-nav-link`} to={'/sushibar'}>
-                                                    {i18n._(t`SushiBar`)}
-                                                </NavLink>
-                                            )}
-                                            {chainId &&
-                                                [ChainId.MAINNET, ChainId.KOVAN, ChainId.BSC, ChainId.MATIC].includes(
-                                                    chainId
-                                                ) && (
-                                                    <NavLink id={`kashi-nav-link`} to={'/bento/kashi/lend'}>
-                                                        {i18n._(t`Lend`)}
-                                                    </NavLink>
-                                                )}
-                                            {chainId &&
-                                                [ChainId.MAINNET, ChainId.KOVAN, ChainId.BSC, ChainId.MATIC].includes(
-                                                    chainId
-                                                ) && (
-                                                    <NavLink id={`bento-nav-link`} to={'/bento'}>
-                                                        {i18n._(t`BentoBox`)}
-                                                    </NavLink>
-                                                )}
-                                            {chainId === ChainId.MAINNET && (
-                                                <NavLink id={`vesting-nav-link`} to={'/vesting'}>
-                                                    {i18n._(t`Vesting`)}
-                                                </NavLink>
-                                            )}
                                             {chainId &&
                                                 [
                                                     ChainId.MAINNET,
-                                                    ChainId.BSC,
-                                                    ChainId.XDAI,
+                                                    ChainId.MATIC,
+                                                    ChainId.MATIC,
+                                                    ChainId.MATIC_TESTNET,
                                                     ChainId.FANTOM,
-                                                    ChainId.MATIC
+                                                    ChainId.FANTOM_TESTNET,
+                                                    ChainId.BSC,
+                                                    ChainId.BSC_TESTNET
                                                 ].includes(chainId) && (
+                                                    <NavLink id={`yield-nav-link`} to={'/yield'}>
+                                                        {i18n._(t`Yield`)}
+                                                    </NavLink>
+                                                )}
+                                            {chainId &&
+                                                [ChainId.MAINNET, ChainId.BSC, ChainId.FANTOM, ChainId.MATIC].includes(
+                                                    chainId
+                                                ) && (
                                                     <ExternalLink
                                                         id={`analytics-nav-link`}
                                                         href={ANALYTICS_URL[chainId] || 'https://analytics.sushi.com'}
