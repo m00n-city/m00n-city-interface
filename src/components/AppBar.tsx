@@ -99,7 +99,7 @@ function AppBar(): JSX.Element {
                                                                     type: 'ERC20',
                                                                     options: {
                                                                         address:
-                                                                            '0xae75A438b2E0cB8Bb01Ec1E1e376De11D44477CC',
+                                                                            '0x5Adc6eB6cf61A2BFef9AE6A64c7236F34dF3081a',
                                                                         symbol: 'LUNAR',
                                                                         decimals: 18,
                                                                         image:
