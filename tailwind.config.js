@@ -18,14 +18,15 @@ module.exports = {
                 tl: 'to top left'
             },
             colors: {
-                'blue-pink': ['#27B0E6', '#FA52A0'],
+                'blue-pink': ['#295079', '#FA52A0'],
                 'pink-red-light-brown': ['#FE5A75', '#FEC464']
             },
             background: {
                 'dark-1000': '#0D0415',
                 'dark-900': '#161522',
                 'dark-800': '#202231',
-                'dark-pink-red': '#4e3034'
+                'dark-pink-red': '#4e3034',
+                'darkblue': '#295079'
             },
             border: {
                 // defaults to these values (optional)
@@ -37,7 +38,7 @@ module.exports = {
         colors: {
             ...defaultTheme.colors,
             red: '#FF3838',
-            blue: '#27B0E6',
+            blue: '#295079',
             pink: '#FA52A0',
             purple: '#A755DD',
             green: '#7CFF6B',
@@ -46,7 +47,7 @@ module.exports = {
             'light-brown': '#FEC464',
             'light-yellow': '#FFD166',
             'cyan-blue': '#0993EC',
-            pink: '#F338C3',
+            pink: '#dcc883',
 
             'dark-pink': '#221825',
             'dark-blue': '#0F182A',
@@ -245,7 +246,7 @@ module.exports = {
                         border: 'double 1px transparent',
                         borderRadius: '0.375rem',
                         backgroundImage:
-                            'linear-gradient(#202231, #202231), linear-gradient(to right, #0993EC, #F338C3)',
+                            'linear-gradient(#202231, #202231), linear-gradient(to right, #0993EC, #dcc883)',
                         backgroundOrigin: 'border-box',
                         backgroundClip: 'padding-box, border-box'
                     }

@@ -76,6 +76,29 @@ const PARAMS: {
         rpcUrls: ['https://rpc-mainnet.maticvigil.com'], //['https://matic-mainnet.chainstacklabs.com/'],
         blockExplorerUrls: ['https://explorer-mainnet.maticvigil.com']
     },
+    [ChainId.RINKEBY]: {
+        chainId: '0x4',
+        chainName: 'Rinkeby Test Network',
+        nativeCurrency: {
+            name: 'Ethereum',
+            symbol: 'ETH',
+            decimals: 18
+        },
+        rpcUrls: ['https://rinkeby.infura.io/v3/undefined'],
+        blockExplorerUrls: ['https://rinkeby.etherscan.io']
+    },
+    [ChainId.GÖRLI]: {
+        chainId: '0x5',
+        chainName: 'GÖRLI',
+        nativeCurrency: {
+            name: 'Ethereum',
+            symbol: 'ETH',
+            decimals: 18
+        },
+        rpcUrls: ['https://goerli.infura.io/v3'],
+        blockExplorerUrls: ['https://goerli.etherscan.io']
+    },
+
     [ChainId.HECO]: {
         chainId: '0x80',
         chainName: 'Heco',
@@ -156,11 +179,13 @@ export default function NetworkModal(): JSX.Element | null {
                     ChainId.BSC,
                     ChainId.BSC_TESTNET,
                     ChainId.MATIC,
-                    ChainId.MATIC_TESTNET
+                    ChainId.MATIC_TESTNET,
+                    ChainId.GÖRLI,
+                    ChainId.RINKEBY
                 ].map((key: ChainId, i: number) => {
                     if (chainId === key) {
                         return (
-                            <button key={i} className="bg-gradient-to-r from-blue to-pink w-full rounded p-px">
+                            <button key={i} className="bg-gradient-to-b from-blue to-pink w-full rounded p-px">
                                 <div className="flex items-center h-full w-full bg-dark-1000 rounded p-3">
                                     <img
                                         src={NETWORK_ICON[key]}

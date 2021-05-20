@@ -38,7 +38,7 @@ function Routes(): JSX.Element {
             {chainId === ChainId.MAINNET && (
                 <Route exact strict path="/claim" component={OpenClaimAddressModalAndRedirectToSwap} />
             )}
-            {chainId === ChainId.MAINNET && <Route exact strict path="/yield" component={MasterChefV1} />}
+            {(chainId === ChainId.MAINNET || chainId === ChainId.RINKEBY || chainId === ChainId.GÖRLI) && <Route exact strict path="/yield" component={MasterChefV1} />}
             {chainId === ChainId.MATIC && <Route exact strict path="/yield" component={MiniChefV2} />}    
             {chainId === ChainId.MATIC_TESTNET && <Route exact strict path="/yield" component={MiniChefV2} />}    
             {chainId === ChainId.FANTOM && <Route exact strict path="/yield" component={MiniChefV2} />}

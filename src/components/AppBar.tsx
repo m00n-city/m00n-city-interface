@@ -1,7 +1,7 @@
 import { ChainId, Currency } from '@sushiswap/sdk'
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import Logo from '../assets/images/logo.png'
+import Logo from '../assets/images/logo.svg'
 import { useActiveWeb3React } from '../hooks/useActiveWeb3React'
 import { useETHBalances } from '../state/wallet/hooks'
 import { ReactComponent as Burger } from '../assets/images/burger.svg'
@@ -45,7 +45,7 @@ function AppBar(): JSX.Element {
                             <div className="flex items-center justify-between h-16">
                                 <div className="flex items-center">
                                     <div className="flex-shrink-0">
-                                        <img src={Logo} alt="Sushi" className="h-10 w-auto" />
+                                        <img src={Logo} alt="Lunar Token" className="h-10 w-auto" />
                                     </div>
                                     <div className="hidden sm:block sm:ml-4">
                                         <div className="flex space-x-2">
@@ -58,7 +58,8 @@ function AppBar(): JSX.Element {
                                                     ChainId.FANTOM,
                                                     ChainId.FANTOM_TESTNET,
                                                     ChainId.BSC,
-                                                    ChainId.BSC_TESTNET
+                                                    ChainId.BSC_TESTNET,
+                                                    ChainId.GÖRLI
                                                 ].includes(chainId) && (
                                                     <NavLink id={`yield-nav-link`} to={'/yield'}>
                                                         {i18n._(t`Yield`)}
@@ -85,8 +86,13 @@ function AppBar(): JSX.Element {
                                             [
                                                 ChainId.MAINNET,
                                                 ChainId.BSC,
+                                                ChainId.BSC_TESTNET,
                                                 ChainId.MATIC,
-                                                ChainId.FANTOM_TESTNET
+                                                ChainId.MATIC_TESTNET,
+                                                ChainId.FANTOM,
+                                                ChainId.FANTOM_TESTNET,
+                                                ChainId.GÖRLI,
+                                                ChainId.RINKEBY
                                             ].includes(chainId) &&
                                             library &&
                                             library.provider.isMetaMask && (
@@ -176,7 +182,7 @@ function AppBar(): JSX.Element {
                                             )}
                                             <Web3Status />
                                         </div>
-                                        <LanguageSwitch />
+                                        {/* <LanguageSwitch /> */}
                                         <MoreMenu />
                                     </div>
                                 </div>

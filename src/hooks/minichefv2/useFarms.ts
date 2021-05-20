@@ -32,6 +32,8 @@ const useFarms = () => {
             case ChainId.FANTOM:
             case ChainId.BSC:
             case ChainId.BSC_TESTNET:
+            case ChainId.GÖRLI:
+            case ChainId.RINKEBY:
                 results = await Promise.all([
                     // minichefv2_matic.query({
                     //     query: miniChefPoolQuery

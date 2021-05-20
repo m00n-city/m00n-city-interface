@@ -91,7 +91,7 @@ export default function InputGroup({
                     </div>
                 )}
                 <div className="px-4">
-                    <div className="bg-purple bg-opacity-20 text-high-emphesis block w-full rounded text-sm p-4">
+                    <div className="bg-blue bg-opacity-20 text-high-emphesis block w-full rounded text-sm p-4">
                         <div className="flex items-center">
                             <div className="ml-3">
                                 <p>
