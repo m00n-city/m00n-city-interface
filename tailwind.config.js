@@ -18,15 +18,14 @@ module.exports = {
                 tl: 'to top left'
             },
             colors: {
-                'blue-pink': ['#295079', '#FA52A0'],
+                'blue-pink': ['#313131', '#FA52A0'],
                 'pink-red-light-brown': ['#FE5A75', '#FEC464']
             },
             background: {
                 'dark-1000': '#0D0415',
                 'dark-900': '#161522',
                 'dark-800': '#202231',
-                'dark-pink-red': '#4e3034',
-                'darkblue': '#295079'
+                'dark-pink-red': '#4e3034'
             },
             border: {
                 // defaults to these values (optional)
@@ -35,10 +34,27 @@ module.exports = {
                 '4': '4px'
             }
         },
+        backgroundColor: {
+            ...defaultTheme.colors,
+            'dark-1000': '#313131',
+            'dark-900': '#474747',
+            'dark-800': '#666666',
+            pink: '#b0a068',
+            blue: '#313131'
+        },
+        minHeight: {
+            '0': '0',
+            '65': '65px',
+            full: '100%'
+        },
+        backgroundImage: {
+            'moon-pattern': "url('../assets/images/moon_texture.jpg')"
+        },
         colors: {
             ...defaultTheme.colors,
             red: '#FF3838',
-            blue: '#295079',
+            blue: '#313131',
+            realblue: '#537393',            
             pink: '#FA52A0',
             purple: '#A755DD',
             green: '#7CFF6B',
@@ -47,7 +63,7 @@ module.exports = {
             'light-brown': '#FEC464',
             'light-yellow': '#FFD166',
             'cyan-blue': '#0993EC',
-            pink: '#dcc883',
+            pink: '#b0a068',
 
             'dark-pink': '#221825',
             'dark-blue': '#0F182A',
@@ -171,7 +187,7 @@ module.exports = {
             },
             backgroundColor: {
                 ...defaultTheme.backgroundColor,
-                input: '#2E3348'
+                input: '#313131'
             },
             boxShadow: {
                 ...defaultTheme.boxShadow,
@@ -246,7 +262,7 @@ module.exports = {
                         border: 'double 1px transparent',
                         borderRadius: '0.375rem',
                         backgroundImage:
-                            'linear-gradient(#202231, #202231), linear-gradient(to right, #0993EC, #dcc883)',
+                            'linear-gradient(#202231, #202231), linear-gradient(to right, #0993EC, #b0a068)',
                         backgroundOrigin: 'border-box',
                         backgroundClip: 'padding-box, border-box'
                     }

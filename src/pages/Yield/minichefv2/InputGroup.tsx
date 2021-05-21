@@ -98,7 +98,7 @@ export default function InputGroup({
                                     <Trans>
                                         <b>Tip:</b> In order to start earning rewards, you will need to first acquire
                                         some SLP by adding liquidity to the specified pair or{' '}
-                                        <Link to="/migrate" className="underline text-blue">
+                                        <Link to="/migrate" className="underline text-pink">
                                             migrating existing liquidity.
                                         </Link>{' '}
                                         Once you have SLP you can stake it into this yield farm to start earning
@@ -114,14 +114,14 @@ export default function InputGroup({
                     {/* Deposit */}
                     <div className="text-center col-span-2 md:col-span-1">
                         {account && (
-                            <div className="text-sm text-secondary cursor-pointer text-right mb-2 pr-4">
+                            <div className="text-sm text-white cursor-pointer text-right mb-2 pr-4">
                                 {i18n._(t`Wallet Balance`)}:{' '}
                                 {formattedNum(fixedFormatting(balance.value, balance.decimals))} {type}
                             </div>
                         )}
                         <div className="flex items-center relative w-full mb-4">
                             <NumericalInput
-                                className="w-full p-3 bg-input rounded focus:ring focus:ring-blue pr-20"
+                                className="w-full p-3 bg-input rounded focus:ring focus:ring-pink pr-20"
                                 value={depositValue}
                                 onUserInput={value => {
                                     setDepositValue(value)
@@ -130,11 +130,11 @@ export default function InputGroup({
                             {account && (
                                 <Button
                                     variant="outlined"
-                                    color="blue"
+                                    color="pink"
                                     onClick={() => {
                                         setDepositValue(fixedFormatting(balance.value, balance.decimals))
                                     }}
-                                    className="absolute right-4 focus:ring focus:ring-blue border-0"
+                                    className="absolute right-4 focus:ring focus:ring-pink border-0"
                                 >
                                     {i18n._(t`MAX`)}
                                 </Button>
@@ -166,7 +166,7 @@ export default function InputGroup({
                     {/* Withdraw */}
                     <div className="text-center col-span-2 md:col-span-1">
                         {account && (
-                            <div className="text-sm text-secondary cursor-pointer text-right mb-2 pr-4">
+                            <div className="text-sm text-white cursor-pointer text-right mb-2 pr-4">
                                 {i18n._(t`Your Staked`)}: {formattedNum(fixedFormatting(staked.value, staked.decimals))}{' '}
                                 {type}
                             </div>

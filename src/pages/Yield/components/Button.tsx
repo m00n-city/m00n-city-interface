@@ -3,7 +3,7 @@ import { ChevronLeft } from 'react-feather'
 import { useHistory } from 'react-router-dom'
 
 const FILLED = {
-    default: 'bg-dark-800 border-2  border-solid	border-gray-700 w-full rounded text-base text-high-emphesis px-4 py-3',
+    default: 'bg-dark-800 border-2  border-solid w-full rounded text-base text-high-emphesis px-4 py-3',
     blue: 'bg-blue w-full rounded text-base text-high-emphesis px-4 py-3',
     pink: 'bg-pink w-full rounded text-base text-high-emphesis px-4 py-3',
     gradient: 'bg-gradient-to-b from-blue to-pink'

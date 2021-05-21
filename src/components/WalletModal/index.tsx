@@ -358,7 +358,7 @@ export default function WalletModal({
                     {walletView !== WALLET_VIEWS.PENDING && (
                         <Blurb>
                             <span>New to Ethereum? &nbsp;</span>{' '}
-                            <ExternalLink href="https://ethereum.org/wallets/">Learn more about wallets</ExternalLink>
+                            <ExternalLink className="text-pink" href="https://ethereum.org/wallets/">Learn more about wallets</ExternalLink>
                         </Blurb>
                     )}
                 </ContentWrapper>

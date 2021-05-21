@@ -1,7 +1,7 @@
 import { ChainId, Currency } from '@sushiswap/sdk'
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import Logo from '../assets/images/logo.svg'
+import Logo from '../assets/images/logo.png'
 import { useActiveWeb3React } from '../hooks/useActiveWeb3React'
 import { useETHBalances } from '../state/wallet/hooks'
 import { ReactComponent as Burger } from '../assets/images/burger.svg'
@@ -37,7 +37,7 @@ function AppBar(): JSX.Element {
     }, [pathname])
 
     return (
-        <header className="flex flex-row flex-nowrap justify-between w-screen">
+        <header className="bg-dark-800 flex flex-row flex-nowrap justify-between w-screen">
             <Disclosure as="nav" className={navClassList}>
                 {({ open }) => (
                     <>
@@ -45,7 +45,7 @@ function AppBar(): JSX.Element {
                             <div className="flex items-center justify-between h-16">
                                 <div className="flex items-center">
                                     <div className="flex-shrink-0">
-                                        <img src={Logo} alt="Lunar Token" className="h-10 w-auto" />
+                                        <img src={Logo} alt="Lunar Token" className="h-10 min-h-65 w-auto" />
                                     </div>
                                     <div className="hidden sm:block sm:ml-4">
                                         <div className="flex space-x-2">
@@ -59,7 +59,8 @@ function AppBar(): JSX.Element {
                                                     ChainId.FANTOM_TESTNET,
                                                     ChainId.BSC,
                                                     ChainId.BSC_TESTNET,
-                                                    ChainId.GÖRLI
+                                                    ChainId.GÖRLI,
+                                                    ChainId.RINKEBY
                                                 ].includes(chainId) && (
                                                     <NavLink id={`yield-nav-link`} to={'/yield'}>
                                                         {i18n._(t`Yield`)}
@@ -109,7 +110,7 @@ function AppBar(): JSX.Element {
                                                                         symbol: 'LUNAR',
                                                                         decimals: 18,
                                                                         image:
-                                                                            'https://raw.githubusercontent.com/m00n-city/m00n-city-interface/m00nCityApp/src/assets/images/logo.png'
+                                                                            'https://raw.githubusercontent.com/m00n-city/m00n-city-interface/m00nCityApp/src/assets/images/logo_small.png'
                                                                     }
                                                                 }
 

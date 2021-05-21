@@ -172,7 +172,7 @@ export const TYPE = {
 export const ThemedGlobalStyle = createGlobalStyle`
 html {
   color: #BFBFBF;
-  background-color: #285078;
+  background-color: #666666;
 }
 
 input, textarea {

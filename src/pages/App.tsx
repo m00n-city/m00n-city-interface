@@ -64,7 +64,7 @@ function App(): JSX.Element {
 
     return (
         <Suspense fallback={null}>
-            <div className="flex flex-col items-start overflow-x-hidden h-screen">
+            <div className="bg-moon-pattern flex flex-col items-start overflow-x-hidden h-screen">
                 <AppBar />
                 <div ref={bodyRef} className={wrapperClassList}>
                     <Popups />

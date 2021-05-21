@@ -168,7 +168,7 @@ export default function NetworkModal(): JSX.Element | null {
             <ModalHeader onClose={toggleNetworkModal} title="Select a Network" />
             <div className="text-lg text-primary mb-6">
                 You are currently browsing <span className="font-bold text-pink">LUNAR</span>
-                <br /> on the <span className="font-bold text-blue">{NETWORK_LABEL[chainId]}</span> network
+                <br /> on the <span className="font-bold text-realblue">{NETWORK_LABEL[chainId]}</span> network
             </div>
 
             <div className="flex flex-col space-y-5 overflow-y-auto">

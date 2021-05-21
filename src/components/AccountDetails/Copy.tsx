@@ -5,7 +5,7 @@ import useCopyClipboard from '../../hooks/useCopyClipboard'
 import { LinkStyledButton } from '../../theme'
 
 const CopyIcon = styled(LinkStyledButton)`
-    color: ${({ theme }) => theme.text3};
+    color: #b0a068;
     flex-shrink: 0;
     display: flex;
     text-decoration: none;

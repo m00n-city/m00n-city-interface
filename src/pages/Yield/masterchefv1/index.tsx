@@ -41,17 +41,17 @@ export default function Yield(): JSX.Element {
             <div className="container max-w-2xl mx-auto">
                 <Card
                     className="h-full bg-dark-900"
-                    header={
-                        <CardHeader className="flex justify-between items-center bg-dark-800">
-                            <div className="flex w-full justify-between">
-                                <div className="hidden md:flex items-center">
-                                    {/* <BackButton defaultRoute="/pool" /> */}
-                                    <div className="text-lg mr-2 whitespace-nowrap">{i18n._(t`Yield Instruments`)}</div>
-                                </div>
-                                <Search search={search} term={term} />
-                            </div>
-                        </CardHeader>
-                    }
+                    // header={
+                    //     <CardHeader className="flex justify-between items-center bg-dark-800">
+                    //         <div className="flex w-full justify-between">
+                    //             <div className="hidden md:flex items-center">
+                    //                 {/* <BackButton defaultRoute="/pool" /> */}
+                    //                 <div className="text-lg mr-2 whitespace-nowrap">{i18n._(t`Yield Instruments`)}</div>
+                    //             </div>
+                    //             <Search search={search} term={term} />
+                    //         </div>
+                    //     </CardHeader>
+                    // }
                 >
                     {/* UserFarms */}
                     {userFarms && userFarms.length > 0 && (

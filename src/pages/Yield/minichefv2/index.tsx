@@ -48,25 +48,25 @@ export default function Yield(): JSX.Element {
             <div className="container max-w-4xl mx-auto px-0 sm:px-4">
                 <Card
                     className="h-full bg-dark-900"
-                    header={
-                        <CardHeader className="flex justify-between items-center bg-dark-800">
-                            <div className="flex w-full justify-between">
-                                <div className="hidden md:block items-center">
-                                    {/* <BackButton defaultRoute="/pool" /> */}
-                                    <div className="text-lg mr-2 whitespace-nowrap flex items-center">
-                                        <div className="mr-2">{i18n._(t`Yield Instruments`)}</div>
-                                        <Badge color="blue">{i18n._(t`V2 Rewarder`)}</Badge>
-                                    </div>
-                                    <div className="flex items-center">
-                                        <div className="text-sm text-gray-500 mr-2">
-                                            Total Deposits: {farms && farms.length > 0 && formattedNum(tvl, true)}
-                                        </div>
-                                    </div>
-                                </div>
-                                <Search search={search} term={term} />
-                            </div>
-                        </CardHeader>
-                    }
+                    // header={
+                    //     <CardHeader className="flex justify-between items-center bg-dark-800">
+                    //         <div className="flex w-full justify-between">
+                    //             <div className="hidden md:block items-center">
+                    //                 {/* <BackButton defaultRoute="/pool" /> */}
+                    //                 <div className="text-lg mr-2 whitespace-nowrap flex items-center">
+                    //                     <div className="mr-2">{i18n._(t`Yield Instruments`)}</div>
+                    //                     <Badge color="blue">{i18n._(t`V2 Rewarder`)}</Badge>
+                    //                 </div>
+                    //                 <div className="flex items-center">
+                    //                     <div className="text-sm mr-2">
+                    //                         Total Deposits: {farms && farms.length > 0 && formattedNum(tvl, true)}
+                    //                     </div>
+                    //                 </div>
+                    //             </div>
+                    //             <Search search={search} term={term} />
+                    //         </div>
+                    //     </CardHeader>
+                    // }
                 >
                     {/* UserFarms */}
                     {userFarms && userFarms.length > 0 && (
@@ -97,7 +97,7 @@ export default function Yield(): JSX.Element {
                             className="flex items-center cursor-pointer hover:text-secondary"
                             onClick={() => requestSort('symbol')}
                         >
-                            <div>{i18n._(t`Instruments`)}</div>
+                            <div>{i18n._(t`Pools`)}</div>
                             {sortConfig &&
                                 sortConfig.key === 'symbol' &&
                                 ((sortConfig.direction === 'ascending' && <ChevronUp size={12} />) ||
@@ -105,8 +105,8 @@ export default function Yield(): JSX.Element {
                         </div>
                         <div className="hidden md:block ml-4">
                             <div className="flex items-center justify-start">
-                                <div className="pr-2">{i18n._(t`Pool Rewards`)}</div>
-                                <Badge color="blue">2X</Badge>
+                                <div className="pr-2">{i18n._(t`Rewards`)}</div>
+                                {/* <Badge color="pink">2X</Badge> */}
                             </div>
                         </div>
                         <div className="hover:text-secondary cursor-pointer" onClick={() => requestSort('tvl')}>
@@ -139,7 +139,7 @@ export default function Yield(): JSX.Element {
                                     <div className="w-full text-center py-6">{i18n._(t`No Results`)}</div>
                                 ) : (
                                     <div className="w-full text-center py-6">
-                                        <Dots>{i18n._(t`Fetching Instruments`)}</Dots>
+                                        <Dots>{i18n._(t`Fetching Pools`)}</Dots>
                                     </div>
                                 )}
                             </>
@@ -166,8 +166,8 @@ const TokenBalance = ({ farm }: any) => {
                         <div className="text-sm sm:text-base font-semibold">
                             {farm && farm.liquidityPair.token0.symbol + '-' + farm.liquidityPair.token1.symbol}
                         </div>
-                        <div className="hidden md:block text-sm sm:text-base ml-4 text-gray-500">{'SUSHI & MATIC'}</div>
-                        <div className="text-gray-500 text-sm sm:text-base text-right">
+                        <div className="hidden md:block text-sm sm:text-base ml-4">{'SUSHI & MATIC'}</div>
+                        <div className="text-sm sm:text-base text-right">
                             {formattedNum(farm.tvl, true)}
                         </div>
                         <div className="font-semibold text-sm sm:text-base text-right">
@@ -212,10 +212,10 @@ const TokenBalance = ({ farm }: any) => {
                                 />
                             </div>
                             <div className="flex flex-col pl-2 space-y-1">
-                                <div className="text-gray-500 text-xs">
+                                <div className="text-xs">
                                     {formattedNum(farm.sushiRewardPerDay)} SUSHI / day
                                 </div>
-                                <div className="text-gray-500 text-xs">
+                                <div className="text-xs">
                                     {formattedNum(farm.secondaryRewardPerDay)} MATIC / day
                                 </div>
                             </div>
@@ -223,19 +223,19 @@ const TokenBalance = ({ farm }: any) => {
                         <div className="md:col-span-2 flex justify-end items-center">
                             <div>
                                 {/* <div className="text-right">{formattedNum(farm.tvl, true)} </div> */}
-                                <div className="text-gray-500 text-right font-semibold text-sm sm:text-sm">
+                                <div className="text-right font-semibold text-sm sm:text-sm">
                                     {formattedNum(farm.slpBalance / 1e18, false)} SLP
                                 </div>
-                                <div className="text-gray-500 text-right text-xs">{i18n._(t`Market Staked`)}</div>
+                                <div className="text-right text-xs">{i18n._(t`Market Staked`)}</div>
                             </div>
                         </div>
                         <div className="md:col-span-3 flex justify-end items-center">
                             <div>
-                                <div className="text-gray-500 text-right font-semibold text-base sm:text-lg">
+                                <div className="text-right font-semibold text-base sm:text-lg">
                                     {farm.roiPerYear > 100 ? '10000%+' : formattedPercent(farm.roiPerYear * 100)}
                                     {/* {formattedPercent(farm.roiPerMonth * 100)}{' '} */}
                                 </div>
-                                <div className="text-gray-500 text-right text-xs">{i18n._(t`annualized`)}</div>
+                                <div className="text-right text-xs">{i18n._(t`annualized`)}</div>
                             </div>
                         </div>
                     </div>

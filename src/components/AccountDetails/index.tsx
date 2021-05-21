@@ -132,7 +132,7 @@ const AccountControl = styled.div`
 
 const AddressLink = styled(ExternalLink)<{ hasENS: boolean; isENS: boolean }>`
     font-size: 0.825rem;
-    color: ${({ theme }) => theme.text3};
+    color: #b0a068;
     margin-left: 1rem;
     font-size: 0.825rem;
     display: flex;
@@ -184,6 +184,9 @@ const TransactionListWrapper = styled.div`
 `
 
 const WalletAction = styled(ButtonSecondary)`
+    color: #b0a068;
+    border-color: #b0a068 !important;
+    border-shadow: none;
     width: fit-content;
     font-weight: 400;
     margin-left: 8px;
