@@ -8,7 +8,7 @@ import { ApplicationModal, setOpenModal } from '../../state/application/actions'
 export function RedirectHashRoutes({ location }: RouteComponentProps) {
     //console.log('location:', location.hash)
     if (!location.hash) {
-        return <Redirect to={{ ...location, pathname: '/swap' }} />
+        return <Redirect to={{ ...location, pathname: '/yield' }} />
     }
     return <Redirect to={location.hash.replace('#', '')} />
 }

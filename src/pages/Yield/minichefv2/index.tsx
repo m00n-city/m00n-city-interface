@@ -154,7 +154,7 @@ export default function Yield(): JSX.Element {
 const TokenBalance = ({ farm }: any) => {
     const { i18n } = useLingui()
     const { chainId } = useActiveWeb3React()
-    const [expand, setExpand] = useState<boolean>(false)
+    const [expand, setExpand] = useState<boolean>(true)
     return (
         <>
             {farm.type === 'SLP' && (
@@ -166,7 +166,7 @@ const TokenBalance = ({ farm }: any) => {
                         <div className="text-sm sm:text-base font-semibold">
                             {farm && farm.liquidityPair.token0.symbol + '-' + farm.liquidityPair.token1.symbol}
                         </div>
-                        <div className="hidden md:block text-sm sm:text-base ml-4">{'SUSHI & MATIC'}</div>
+                        <div className="hidden md:block text-sm sm:text-base ml-4">{'LUNAR'}</div>
                         <div className="text-sm sm:text-base text-right">
                             {formattedNum(farm.tvl, true)}
                         </div>
@@ -213,7 +213,7 @@ const TokenBalance = ({ farm }: any) => {
                             </div>
                             <div className="flex flex-col pl-2 space-y-1">
                                 <div className="text-xs">
-                                    {formattedNum(farm.sushiRewardPerDay)} SUSHI / day
+                                    {formattedNum(farm.sushiRewardPerDay)} LUNAR / day
                                 </div>
                                 <div className="text-xs">
                                     {formattedNum(farm.secondaryRewardPerDay)} MATIC / day
