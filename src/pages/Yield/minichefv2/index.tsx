@@ -204,20 +204,20 @@ const TokenBalance = ({ farm }: any) => {
                                     className="block w-10 h-10 rounded-sm"
                                 />
                             </div>
-                            <div>
+                            {/* <div>
                                 <AsyncTokenIcon
                                     address={farm.rewardTokens?.[1]}
                                     chainId={chainId}
                                     className="block w-10 h-10 rounded-sm"
                                 />
-                            </div>
+                            </div> */}
                             <div className="flex flex-col pl-2 space-y-1">
                                 <div className="text-xs">
                                     {formattedNum(farm.sushiRewardPerDay)} LUNAR / day
                                 </div>
-                                <div className="text-xs">
+                                {/* <div className="text-xs">
                                     {formattedNum(farm.secondaryRewardPerDay)} MATIC / day
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                         <div className="md:col-span-2 flex justify-end items-center">

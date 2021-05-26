@@ -12,7 +12,7 @@ const StyledPolling = styled.div`
     bottom: 0;
     padding: 1rem;
     color: white;
-    transition: opacity 0.25s ease;
+    transition: opacity 0.25s ease;    
     color: ${({ theme }) => theme.green1};
     :hover {
         opacity: 1;
@@ -85,7 +85,7 @@ export default function Polling() {
     return (
         <ExternalLink href={chainId && blockNumber ? getExplorerLink(chainId, blockNumber.toString(), 'block') : ''}>
             <StyledPolling>
-                <TYPE.small style={{ opacity: isMounted ? '0.2' : '0.6' }}>{blockNumber}</TYPE.small>
+                <TYPE.small style={{ opacity: isMounted ? '0.6' : '0.9', color: '#313131' }}>{blockNumber}</TYPE.small>
                 <StyledPollingDot>{!isMounted && <Spinner />}</StyledPollingDot>
             </StyledPolling>
         </ExternalLink>
