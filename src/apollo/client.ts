@@ -1,4 +1,5 @@
-import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client'
+import { ChainId } from '@sushiswap/sdk'
+import { ApolloClient, InMemoryCache, createHttpLink, DefaultOptions } from '@apollo/client'
 
 export const blocklytics = new ApolloClient({
     link: createHttpLink({
@@ -80,3 +81,28 @@ export const blockClient_matic = new ApolloClient({
         }
     }
 })
+
+function createClient(options?: DefaultOptions) {
+    new ApolloClient({
+        link: createHttpLink({
+            uri: 'https://api.thegraph.com/subgraphs/name/m00n-city/lunarfarm'
+        }),
+        cache: new InMemoryCache(),
+        defaultOptions: options
+    })
+}
+
+export const lunarFarmClient = {
+    [ChainId.RINKEBY]: new ApolloClient({
+        link: createHttpLink({
+            uri: 'https://api.thegraph.com/subgraphs/name/m00n-city/lunarfarm'
+        }),
+        cache: new InMemoryCache(),
+        defaultOptions: {
+            query: {
+                fetchPolicy: 'no-cache',
+                errorPolicy: 'all'
+            }
+        }
+    })
+}
