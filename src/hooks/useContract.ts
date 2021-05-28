@@ -49,6 +49,7 @@ import KASHIPAIR_ABI from '../constants/abis/kashipair.json'
 import MAKER_ABI from '../constants/abis/maker.json'
 import MASTERCHEF_ABI from '../constants/abis/masterchef.json'
 import MINICHEFV2_ABI from '../constants/abis/miniChefV2.json'
+import LUNARFARM_ABI from '../constants/abis/lunarFarm.json'
 import PENDING_ABI from '../constants/abis/pending.json'
 import ROUTER_ABI from '../constants/abis/router.json'
 import SAAVE_ABI from '../constants/abis/saave.json'
@@ -183,6 +184,19 @@ export function useMiniChefV2Contract(withSignerIfPossible?: boolean): Contract 
         }
     }
     return useContract(address, MINICHEFV2_ABI, withSignerIfPossible)
+}
+
+export function useLunarFarmContract(withSignerIfPossible?: boolean): Contract | null {    
+    const { chainId } = useActiveWeb3React()
+    let address: string | undefined
+    if (chainId) {
+        switch (chainId) {
+            case ChainId.RINKEBY:
+                address = '0xf3636957372427ef1f190eded0b448ac1459597b'
+                break
+        }
+    }
+    return useContract(address, LUNARFARM_ABI, withSignerIfPossible)
 }
 
 export function useFactoryContract(): Contract | null {

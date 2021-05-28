@@ -191,6 +191,11 @@ const TOKEN_ICONS: { [chainId in ChainId]?: any } = {
         [String('0x777850281719d5a96C29812ab72f822E0e09F3Da').toLowerCase()]: 'SNX-square', // SNX
         [String('0x22C54cE8321A4015740eE1109D9cBc25815C46E6').toLowerCase()]: 'UNI-square',
         [String('0xa71EdC38d189767582C38A3145b5873052c3e47a').toLowerCase()]: 'USDT-square'
+    },
+    [ChainId.RINKEBY]: {        
+        [String('0xc778417e063141139fce010982780140aa0cd5ab').toLowerCase()]: 'ETH-square',
+        [String('0x7ceb23fd6bc0add59e62ac25578270cff1b9f619').toLowerCase()]: 'ETH-square',
+        [String('0xf370671dD4cC2F2a0b6442Ddf010C6bd176dAA16').toLowerCase()]: 'LUNAR-square'
     }
 }
 

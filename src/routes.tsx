@@ -26,6 +26,7 @@ import {
 import Vesting from './pages/Vesting'
 import MasterChefV1 from './pages/Yield/masterchefv1'
 import MiniChefV2 from './pages/Yield/minichefv2'
+import lunarFarm from './pages/Yield/lunarFarm'
 
 import Transactions from './pages/Transactions'
 
@@ -33,24 +34,26 @@ function Routes(): JSX.Element {
     const { chainId } = useActiveWeb3React()
     return (
         <Switch>
-            <PublicRoute exact path="/connect" component={Connect} />            
+            <PublicRoute exact path="/connect" component={Connect} />
 
             {chainId === ChainId.MAINNET && (
                 <Route exact strict path="/claim" component={OpenClaimAddressModalAndRedirectToSwap} />
             )}
-            {(chainId === ChainId.MAINNET || chainId === ChainId.RINKEBY || chainId === ChainId.GÖRLI) && <Route exact strict path="/yield" component={MasterChefV1} />}
-            {chainId === ChainId.MATIC && <Route exact strict path="/yield" component={MiniChefV2} />}    
-            {chainId === ChainId.MATIC_TESTNET && <Route exact strict path="/yield" component={MiniChefV2} />}    
+            {(chainId === ChainId.MAINNET || chainId === ChainId.GÖRLI) && (
+                <Route exact strict path="/yield" component={MasterChefV1} />
+            )}
+            {chainId === ChainId.RINKEBY && <Route exact strict path="/yield" component={lunarFarm} />}
+            {chainId === ChainId.MATIC && <Route exact strict path="/yield" component={MiniChefV2} />}
+            {chainId === ChainId.MATIC_TESTNET && <Route exact strict path="/yield" component={MiniChefV2} />}
             {chainId === ChainId.FANTOM && <Route exact strict path="/yield" component={MiniChefV2} />}
             {chainId === ChainId.FANTOM_TESTNET && <Route exact strict path="/yield" component={MiniChefV2} />}
             {chainId === ChainId.BSC && <Route exact strict path="/yield" component={MiniChefV2} />}
             {chainId === ChainId.BSC_TESTNET && <Route exact strict path="/yield" component={MiniChefV2} />}
-                        
 
             {/* Migrate */}
             {(chainId === ChainId.MAINNET || chainId === ChainId.BSC || chainId === ChainId.MATIC) && (
                 <Route exact strict path="/migrate" component={Migrate} />
-            )}            
+            )}
 
             {/* Pages */}
             <Route exact strict path="/tradingview" component={Trade} />
