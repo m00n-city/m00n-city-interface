@@ -21,7 +21,7 @@ export const Popup = styled.div`
     display: inline-block;
     width: 100%;
     padding: 1em;
-    background-color: ${({ theme }) => theme.bg1};
+    background-color: #474747;
     position: relative;
     border-radius: 10px;
     padding: 20px;
@@ -41,7 +41,7 @@ const Fader = styled.div`
     left: 0px;
     width: 100%;
     height: 2px;
-    background-color: ${({ theme }) => theme.bg3};
+    background-color: #474747 };
 `
 
 const AnimatedFader = animated(Fader)

@@ -1,7 +1,7 @@
 {
-    "name": "@sushiswap/interface",
-    "description": "SushiSwap Interface",
-    "homepage": "https://app.sushi.com",
+    "name": "@m00n-city/m00n-city-interface",
+    "description": "M00n City Interface",
+    "homepage": "https://app.m00n.city",
     "private": true,
     "lint-staged": {
         "*.{js,jsx,ts,tsx}": [

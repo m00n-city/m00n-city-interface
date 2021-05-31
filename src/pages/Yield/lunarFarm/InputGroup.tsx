@@ -7,9 +7,8 @@ import { ApprovalState, useApproveCallback } from '../../../hooks/useApproveCall
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import useLunarFarm from '../../../hooks/lunarfarm/useLunarFarm'
-import usePendingSushi from '../../../hooks/minichefv2/usePendingSushi'
-import usePendingReward from '../../../hooks/minichefv2/usePendingReward'
-import useStakedBalance from '../../../hooks/minichefv2/useStakedBalance'
+import usePendingLunar from '../../../hooks/lunarfarm/usePendingLunar'
+import useStakedBalance from '../../../hooks/lunarfarm/useStakedBalance'
 import useTokenBalance from '../../../hooks/useTokenBalance'
 import { formattedNum, isAddress, isAddressString, isWETH } from '../../../utils'
 import { Dots } from '../../Pool/styleds'
@@ -51,19 +50,13 @@ export default function InputGroup({
 
     const pairAddressChecksum = isAddressString(pairAddress)
 
-    //const { deposit } = useBentoBox()
     const balance = useTokenBalance(pairAddressChecksum)
     const staked = useStakedBalance(pid, assetDecimals) // kMP depends on decimals of asset, SLP is always 18
-    const pending = usePendingSushi(pid)
-    const reward = usePendingReward(pid)
-
-    // console.log('balance:', balance)
-    // console.log('staked:', staked)
-    // console.log('pending:', pending, pid)
+    const pending = usePendingLunar(pid)
 
     const [approvalState, approve] = useApproveCallback(
         tryParseAmount(depositValue, new Token(chainId || 1, pairAddressChecksum, balance.decimals, pairSymbol, '')),
-        '0xf3636957372427ef1f190eded0b448ac1459597b' //miniChef on Matic
+        '0xf3636957372427ef1f190eded0b448ac1459597b' //lunarFarm on Matic
     )
     //console.log('Approval:', approvalState, ApprovalState.NOT_APPROVED)
 
@@ -75,18 +68,18 @@ export default function InputGroup({
         <>
             <div className="flex flex-col space-y-4 py-6">
                 {pending && Number(pending) > 0 && (
-                    <div className=" px-4">
+                    <div className="px-4">
                         <Button
-                            color="default"
+                            color="pink"
+                            className="border-0"
                             onClick={async () => {
                                 setPendingTx(true)
                                 await harvest(pid, pairSymbol)
                                 setPendingTx(false)
                             }}
                         >
-                            <Trans>
-                                Harvest {formattedNum(pending)} SUSHI & {formattedNum(reward)} MATIC
-                            </Trans>
+                            <Trans>Harvest {formattedNum(pending)} LUNAR</Trans>
+                            {/* SUSHI & {formattedNum(reward)} MATIC */}
                         </Button>
                     </div>
                 )}
@@ -211,52 +204,32 @@ export default function InputGroup({
                     </div>
                 </div>
                 <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 px-4">
-                    {type === 'SLP' && (
-                        <>
-                            <Button
-                                color="default"
-                                onClick={() =>
-                                    history.push(
-                                        `/add/${
-                                            chainId && WETH[chainId].address === isAddress(token0Address)
-                                                ? 'ETH'
-                                                : token0Address
-                                        }/${
-                                            chainId && WETH[chainId].address === isAddress(token1Address)
-                                                ? 'ETH'
-                                                : token1Address
-                                        }`
-                                    )
-                                }
-                            >
-                                {i18n._(t`Add Liquidity`)}
-                            </Button>
-                            <Button
-                                color="default"
-                                onClick={() =>
-                                    history.push(`/remove/${isWETH(token0Address)}/${isWETH(token1Address)}`)
-                                }
-                            >
-                                {i18n._(t`Remove Liquidity`)}
-                            </Button>
-                        </>
-                    )}
-                    {type === 'KMP' && assetSymbol && (
-                        <>
-                            <Button
-                                color="default"
-                                onClick={() => history.push(`/bento/kashi/lend/${isWETH(pairAddress)}`)}
-                            >
-                                {i18n._(t`Lend`)} {assetSymbol}
-                            </Button>
-                            <Button
-                                color="default"
-                                onClick={() => history.push(`/bento/kashi/lend/${isWETH(pairAddress)}`)}
-                            >
-                                {i18n._(t`Withdraw`)} {assetSymbol}
-                            </Button>
-                        </>
-                    )}
+                    <>
+                        <Button
+                            color="default"
+                            onClick={() =>
+                                history.push(
+                                    `/add/${
+                                        chainId && WETH[chainId].address === isAddress(token0Address)
+                                            ? 'ETH'
+                                            : token0Address
+                                    }/${
+                                        chainId && WETH[chainId].address === isAddress(token1Address)
+                                            ? 'ETH'
+                                            : token1Address
+                                    }`
+                                )
+                            }
+                        >
+                            {i18n._(t`Add Liquidity`)}
+                        </Button>
+                        <Button
+                            color="default"
+                            onClick={() => history.push(`/remove/${isWETH(token0Address)}/${isWETH(token1Address)}`)}
+                        >
+                            {i18n._(t`Remove Liquidity`)}
+                        </Button>
+                    </>
                 </div>
             </div>
         </>

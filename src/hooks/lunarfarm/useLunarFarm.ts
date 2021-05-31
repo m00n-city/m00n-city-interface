@@ -15,8 +15,7 @@ const useLunarFarm = () => {
         async (pid: number, amount: string, name: string, decimals = 18) => {
             // KMP decimals depend on asset, SLP is always 18
             console.log('depositing...', pid, amount)
-            try {
-                // const options = { gasPrice: 1000000000, gasLimit: 85000};
+            try {                
                 const tx = await lunarFarmContract?.deposit(pid, ethers.utils.parseUnits(amount, decimals), account)
                 return addTransaction(tx, { summary: `Deposit ${name}` })
             } catch (e) {

@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import { useActiveWeb3React } from 'hooks/useActiveWeb3React'
-import { useMiniChefV2Contract } from 'hooks/useContract'
+import { useLunarFarmContract } from 'hooks/useContract'
 import { useCallback, useEffect, useState } from 'react'
 import { useBlockNumber } from 'state/application/hooks'
 
@@ -15,12 +15,12 @@ const useStakedBalance = (pid: number, decimals = 18) => {
 
     const { account } = useActiveWeb3React()
     const currentBlockNumber = useBlockNumber()
-    const miniChefV2Contract = useMiniChefV2Contract()
+    const lunarFarmContract = useLunarFarmContract()
 
     const fetchBalance = useCallback(async () => {
         const getStaked = async (pid: number, owner: string | null | undefined): Promise<BalanceProps> => {
             try {
-                const { amount } = await miniChefV2Contract?.userInfo(pid, owner)
+                const { amount } = await lunarFarmContract?.userInfo(pid, owner)
                 return { value: BigNumber.from(amount), decimals: decimals }
             } catch (e) {
                 return { value: BigNumber.from(0), decimals: decimals }
@@ -28,13 +28,13 @@ const useStakedBalance = (pid: number, decimals = 18) => {
         }
         const balance = await getStaked(pid, account)
         setBalance(balance)
-    }, [account, decimals, miniChefV2Contract, pid])
+    }, [account, decimals, lunarFarmContract, pid])
 
     useEffect(() => {
-        if (account && miniChefV2Contract) {
+        if (account && lunarFarmContract) {
             fetchBalance()
         }
-    }, [account, setBalance, currentBlockNumber, fetchBalance, miniChefV2Contract])
+    }, [account, setBalance, currentBlockNumber, fetchBalance, lunarFarmContract])
 
     return balance
 }

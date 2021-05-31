@@ -1,18 +1,14 @@
 import { ChainId } from '@sushiswap/sdk'
-import { BigNumber } from '@ethersproject/bignumber'
 import sushiData from '@sushiswap/sushi-data'
 import { useActiveWeb3React } from 'hooks/useActiveWeb3React'
-import { useBoringHelperContract } from 'hooks/useContract'
 import orderBy from 'lodash/orderBy'
 import { useCallback, useEffect, useState } from 'react'
-import { exchange_matic, lunarFarmClient, minichefv2_matic } from 'apollo/client'
+import { exchange_matic, lunarFarmClient } from 'apollo/client'
 import { getOneDayBlock } from 'apollo/getAverageBlockTime'
-import {
-    tokenQuery,
+import {    
     liquidityPositionSubsetQuery,
     pairSubsetQuery,
-    pairTimeTravelQuery,
-    miniChefPoolQuery,
+    pairTimeTravelQuery,    
     lunarFarmPoolQuery
 } from 'apollo/queries'
 import { POOL_DENY } from '../../constants'
@@ -56,8 +52,7 @@ const hardcodedPair = {
 // Todo: Rewrite in terms of web3 as opposed to subgraph
 const useFarms = () => {
     const [farms, setFarms] = useState<any | undefined>()
-    const { account, chainId } = useActiveWeb3React()
-    const boringHelperContract = useBoringHelperContract()
+    const { chainId } = useActiveWeb3React()    
 
     const fetchAllFarms = useCallback(async () => {
         let results: any[] = []
@@ -139,7 +134,7 @@ const useFarms = () => {
                 const balance = Number(pool.slpBalance / 1e18)
                 const balanceUSD = (balance / Number(pair.totalSupply)) * Number(pair.reserveUSD)
 
-                const rewardPerSecond = ((pool.depositAmount / totalAllocPoint) * pool.lunarPerSecond) / 1e18
+                const rewardPerSecond = pool.lunarPerSecond / 1e18
                 const rewardPerDay = rewardPerSecond * 86400
                 
                 const roiPerSecond = (rewardPerSecond * lunarPrice) / balanceUSD

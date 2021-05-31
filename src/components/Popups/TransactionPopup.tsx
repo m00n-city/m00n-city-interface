@@ -9,7 +9,8 @@ import { AutoColumn } from '../Column'
 import { AutoRow } from '../Row'
 
 const RowNoFlex = styled(AutoRow)`
-    flex-wrap: nowrap;
+    flex-wrap: nowrap;    
+    background-color: #474747;
 `
 
 export default function TransactionPopup({
@@ -35,7 +36,7 @@ export default function TransactionPopup({
                 )}
             </div>
             <AutoColumn gap="8px">
-                <TYPE.body fontWeight={500}>
+                <TYPE.body fontWeight={500} color='#b0a068' >
                     {summary ?? 'Hash: ' + hash.slice(0, 8) + '...' + hash.slice(58, 65)}
                 </TYPE.body>
                 {chainId && (
